@@ -13,7 +13,10 @@ from transformers import BertConfig, BertTokenizer, BertModel, BertForMaskedLM, 
                          OpenAIGPTTokenizer, OpenAIGPTLMHeadModel, OpenAIGPTConfig, \
                          GPT2Config, GPT2Tokenizer, GPT2LMHeadModel, \
                          OPTConfig, OPTForCausalLM, \
-                         ElectraConfig, ElectraForMaskedLM, ElectraTokenizer
+                         ElectraConfig, ElectraForMaskedLM, ElectraTokenizer, \
+                         BartTokenizer, BartConfig, BartForConditionalGeneration, \
+                         AutoTokenizer, BloomForCausalLM, BloomConfig
+
 from collections import namedtuple
 from yacs.config import CfgNode
 
@@ -77,8 +80,21 @@ _MODEL_CLASSES = {
         'model': ElectraForMaskedLM,
         'wrapper': MLMTokenizerWrapper,
     }),
+    'bart': ModelClass(**{
+        'config': BartConfig,
+        'tokenizer': BartTokenizer,
+        'model': BartForConditionalGeneration,
+        'wrapper': T5TokenizerWrapper,
+    }),
+    'bloom': ModelClass(**{
+        'config': BloomConfig,
+        'tokenizer': AutoTokenizer,
+        'model': BloomForCausalLM,
+        'wrapper': LMTokenizerWrapper,
+    })
 }
 
+ 
 
 def get_model_class(plm_type: str):
     return _MODEL_CLASSES[plm_type]

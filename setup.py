@@ -32,14 +32,14 @@ def get_requirements():
 with open('README.md', 'r') as f:
     setuptools.setup(
         name = 'openprompt',
-        version = '1.0.1',
+        version = '1.0.2',
         description = "An open source framework for prompt-learning.",
         long_description=open("README.md", "r", encoding="utf-8").read(),
         long_description_content_type="text/markdown",
         author = 'Ning Ding, Shengding Hu, Weilin Zhao, Yulin Chen',
-        author_email = 'dingn18@mails.tsinghua.edu.cn',
+        author_email = 'hamedbabaeigiglou@gmail.com',
         license="Apache",
-        url="https://github.com/thunlp/OpenPrompt",
+        url="https://github.com/HamedBabaei/OpenPrompt",
         keywords = ['PLM', 'prompt', 'AI', 'NLP'],
         python_requires=">=3.6.0",
         install_requires=get_requirements(),
